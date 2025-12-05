@@ -52,7 +52,7 @@ def preprocess(img):
 # -------------------------------
 # UI — Live Drawing Area
 # -------------------------------
-st.title("✏️ Live Handwritten Digit Recognition")
+st.title(" Live Handwritten Digit Recognition")
 st.write("Draw any **digit (0–9)** below:")
 
 canvas = st_canvas(
@@ -67,7 +67,7 @@ canvas = st_canvas(
 
 if canvas.image_data is not None:
     img = Image.fromarray(canvas.image_data.astype("uint8")).convert("RGB")
-    st.image(img, width=200)
+    st.image("Preview of the image",img, width=200)
 
 if st.button("Predict"):
     if canvas.image_data is None:
@@ -78,4 +78,4 @@ if st.button("Predict"):
         digit = int(np.argmax(pred))
         conf = float(np.max(pred))
 
-        st.success(f"**Prediction: {digit}** (confidence {conf:.2f})")
+        st.success(f"**The Number you have written is: {digit}** with (confidence {conf:.2f})")
