@@ -65,10 +65,10 @@ canvas = st_canvas(
     key="canvas",
 )
 
-if canvas.image_data is not None:
-    img = Image.fromarray(canvas.image_data.astype("uint8")).convert("RGB")
-    st.write("Preview of your handwritten digit")
-    st.image(img, width=200)
+# if canvas.image_data is not None:
+#     img = Image.fromarray(canvas.image_data.astype("uint8")).convert("RGB")
+#     st.write("Preview of your handwritten digit")
+#     st.image(img, width=200)
 
 if st.button("Predict"):
     if canvas.image_data is None:
