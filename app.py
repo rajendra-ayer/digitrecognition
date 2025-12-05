@@ -72,8 +72,10 @@ canvas = st_canvas(
 
 if st.button("Predict"):
     if canvas.image_data is None:
+        img = Image.fromarray(canvas.image_data.astype("uint8")).convert("RGB")
         st.error("Please draw a digit first!")
     else:
+        img = Image.fromarray(canvas.image_data.astype("uint8")).convert("RGB")
         x = preprocess(img)
         pred = model.predict(np.expand_dims(x, 0))
         digit = int(np.argmax(pred))
